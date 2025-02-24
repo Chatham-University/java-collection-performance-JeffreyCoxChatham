@@ -5,14 +5,17 @@ public class LinkedListDemo {
     private final LinkedList<Integer> nums;
 
     public LinkedListDemo(int howManyNums, Random rand) {
+        long start = System.currentTimeMillis();
+
+        long fstart = System.currentTimeMillis();
         nums = new LinkedList<Integer>();
         for(int i = 0; i < howManyNums; i++) {
             nums.add(rand.nextInt(howManyNums));
         }
+        long fend = System.currentTimeMillis();
+        System.out.println(String.format("LinkedList Fill Time: %.3f seconds", (fend - fstart) / 1000.0));
 
-        System.out.println("The first few numbers are: ");
-        for(int i = 0; i < 6; i++){
-            System.out.println(nums.get(i));
-        }
+        long end = System.currentTimeMillis();
+        System.out.println(String.format("LinkedList Total Time: %.3f seconds", (end - start) / 1000.0));
     }
 }
