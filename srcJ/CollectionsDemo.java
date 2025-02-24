@@ -25,6 +25,6 @@ public class CollectionsDemo {
 
         System.out.println("Begin LinkedList Tests:");
         new LinkedListDemo(HOW_MANY_NUMS, rand);
-        System.out.println("End Vector Tests.");
+        System.out.println("End LinkedList Tests.");
     }
 }

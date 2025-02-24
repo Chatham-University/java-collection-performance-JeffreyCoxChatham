@@ -48,7 +48,7 @@ public class ArrayDemo {
         long end = System.currentTimeMillis();
         System.out.println(String.format("Array Total Time: %.3f seconds", (end - start) / 1000.0));
         if (!accuracy) {
-            System.out.print("Times may be inaccurate due to test abortion.");
+            System.out.println("Times may be inaccurate due to test abortion.");
         }
     }
 }
