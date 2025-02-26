@@ -5,7 +5,6 @@ public class VectorDemo {
     private final Vector<Integer> nums;
 
     public VectorDemo(int howManyNums, Random rand, int RWRepetitions) {
-        long start = System.currentTimeMillis();
         boolean accuracy = true;
 
         long fstart = System.currentTimeMillis();
@@ -19,7 +18,8 @@ public class VectorDemo {
             }
         }
         long  fend = System.currentTimeMillis();
-        System.out.println(String.format("Vector Fill Time: %.3f seconds", (fend - fstart) / 1000.0));
+        long ftotal = (fend - fstart);
+        System.out.println(String.format("LinkedList Fill Time: %.3f seconds", ftotal / 1000.0));
 
         long rstart = System.currentTimeMillis();
         float readDummy;
@@ -32,7 +32,8 @@ public class VectorDemo {
             }
         }
         long rend = System.currentTimeMillis();
-        System.out.println(String.format("Vector Read Time: %.3f seconds", (rend - rstart) / 1000.0));
+        long rtotal = (rend - rstart);
+        System.out.println(String.format("LinkedList Read Time: %.3f seconds", rtotal / 1000.0));
 
         long wstart = System.currentTimeMillis();
         for(int i = 0; i < RWRepetitions; i++) {
@@ -44,10 +45,10 @@ public class VectorDemo {
             }
         }
         long wend = System.currentTimeMillis();
-        System.out.println(String.format("Vector Write Time: %.3f seconds", (wend - wstart) / 1000.0));
+        long wtotal = (wend - wstart);
+        System.out.println(String.format("LinkedList Write Time: %.3f seconds", wtotal / 1000.0));
 
-        long end = System.currentTimeMillis();
-        System.out.println(String.format("Vector Total Time: %.3f seconds", (end - start) / 1000.0));
+        System.out.println(String.format("LinkedList Total Time: %.3f seconds", (ftotal + rtotal + wtotal) / 1000.0));
         if (!accuracy) {
             System.out.println("Times may be inaccurate due to test abortion.");
         }
