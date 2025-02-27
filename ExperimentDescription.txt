@@ -5,9 +5,16 @@ Instead of simply making an array/vector/linkedlist and recording the time, ther
 -Write test, where a random element of the collection is chosen, and overwritten with a new random number. This is done howManyNums times.
 Each of these will have their individual times recorded, and then the times of the three tests will be summed together to give a time for the collection as a whole.
 
-Unfortunately, reading and writing to every element of a linked list takes an inordinate amount of time.
+Unfortunately, reading and writing to so many elements of a linked list takes an inordinate amount of time.
 To circumvent this, I will instead do the read/write operation howManyNums/1000 times (so with howManyNums = 1,000,000, the operation is done 1,000 times).
 Then, the time this takes will be multiplied by 1000 to approximate how long it would probably take.
 Given the random distribution of the indices chosen, this approximation will likely be mostly accurate.
 
 Finally, as a failsafe, the tests will be aborted after 1 minute.
+
+Results:
+For arrays, the write test took a bit longer than the fill and read tests, particularly at 10^6 - 10^8.
+For vectors, the read test took noticeably longer than the fill test, and the write test took noticeably longer than that: 1.1s, 2.8s, and 7.9s for 10^7, and 14s, 31s, and 93s for 10^8.
+For linked lists, the read and write tests took exponentially longer: seemingly 100 times longer for every successive power of 10, at least looking at the read test.
+For both the read and write tests, arrays did the best, vectors second, and with linked lists being nearly unusable when reading from or writing to values between the beginning and end.
+Overall, reading and writing took noticeably longer than simply creating and populating the collections. In the case of linked lists, reading and writing, specifically to non-end values, quickly became impossible to do in reasonable amounts of time.
