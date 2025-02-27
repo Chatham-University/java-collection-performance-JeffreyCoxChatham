@@ -1,0 +1,13 @@
+New Experiment:
+Instead of simply making an array/vector/linkedlist and recording the time, there will be three tests for each collection type:
+-Fill test, where the collection is made and populated (this is what was already being done).
+-Read test, where a random element of the collection is chosen, read, and stored in a dummy variable. This is done howManyNums times.
+-Write test, where a random element of the collection is chosen, and overwritten with a new random number. This is done howManyNums times.
+Each of these will have their individual times recorded, and then the times of the three tests will be summed together to give a time for the collection as a whole.
+
+Unfortunately, reading and writing to every element of a linked list takes an inordinate amount of time.
+To circumvent this, I will instead do the read/write operation howManyNums/1000 times (so with howManyNums = 1,000,000, the operation is done 1,000 times).
+Then, the time this takes will be multiplied by 1000 to approximate how long it would probably take.
+Given the random distribution of the indices chosen, this approximation will likely be mostly accurate.
+
+Finally, as a failsafe, the tests will be aborted after 1 minute.
